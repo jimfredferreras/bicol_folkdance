@@ -1,3 +1,4 @@
+import 'package:bicol_folkdance/pages/generating_loading.dart';
 import 'package:flutter/material.dart';
 
 class GenerateDance extends StatelessWidget {
@@ -19,13 +20,22 @@ class GenerateDance extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: 160, // Adjust width as needed
-                height: 160, // Adjust height as needed
-                child: Image.asset(
-                  'assets/letsdance.png', // Assuming upload_button.png is in the assets folder
-                  fit: BoxFit
-                      .contain, // You can adjust the fit based on your requirements
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const GeneratingLoading()),
+                  );
+                },
+                child: SizedBox(
+                  width: 160, // Adjust width as needed
+                  height: 160, // Adjust height as needed
+                  child: Image.asset(
+                    'assets/letsdance.png', // Assuming letsdance.png is in the assets folder
+                    fit: BoxFit
+                        .contain, // You can adjust the fit based on your requirements
+                  ),
                 ),
               ),
               SizedBox(

@@ -1,6 +1,5 @@
-// DAPAT DITO NA MA LABAS ANG OUTPUT NA GALING SA MODEL KAPAG SUCESS ANG SA CLASSIFICATION
-
-import 'package:bicol_folkdance/pages/home.dart';
+// ITO MALABAS KAPAG FAILED ANG PAG OUTPUT SA PAG CLASSIFY
+import 'package:bicol_folkdance/pages/classify_upload.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,13 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ClassificationDone(),
+      home: ClassificationFailed(),
     );
   }
 }
 
-class ClassificationDone extends StatelessWidget {
-  const ClassificationDone({Key? key}) : super(key: key);
+class ClassificationFailed extends StatelessWidget {
+  const ClassificationFailed({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class ClassificationDone extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/output_done.jpg'), // Replace 'assets/background_image.jpg' with your image path
+                'assets/output_failed.jpg'), // Replace 'assets/background_image.jpg' with your image path
             fit: BoxFit.cover, // Adjust the image fit as needed
           ),
         ),
@@ -42,7 +41,8 @@ class ClassificationDone extends StatelessWidget {
                   // Navigate to the new page
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => const ClassifyUpload()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -51,7 +51,7 @@ class ClassificationDone extends StatelessWidget {
                   foregroundColor: Colors.white,
                 ),
                 child: const Text(
-                  'D O N E',
+                  'T R Y  A G A I N',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                 ),
               ),

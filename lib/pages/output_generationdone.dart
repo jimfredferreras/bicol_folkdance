@@ -1,4 +1,4 @@
-// DAPAT DITO NA MA LABAS ANG OUTPUT NA GALING SA MODEL KAPAG SUCESS ANG SA CLASSIFICATION
+// DAPAT DITO NA MA LABAS ANG OUTPUT NUNG GAN
 
 import 'package:bicol_folkdance/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ClassificationDone(),
+      home: GenerationDone(),
     );
   }
 }
 
-class ClassificationDone extends StatelessWidget {
-  const ClassificationDone({Key? key}) : super(key: key);
+class GenerationDone extends StatelessWidget {
+  const GenerationDone({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ClassificationDone extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/output_done.jpg'), // Replace 'assets/background_image.jpg' with your image path
+                'assets/output_generationdone.jpg'), // Replace 'assets/background_image.jpg' with your image path
             fit: BoxFit.cover, // Adjust the image fit as needed
           ),
         ),

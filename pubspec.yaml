@@ -76,8 +76,10 @@ flutter:
     - assets/howbg.jpg
     - assets/welcomebg.jpg
     - assets/output_done.jpg
+    - assets/output_generationdone.jpg
     - assets/output_failed.jpg
     - assets/classfyingdance_loading.jpg
+    - assets/generatingdance_loading.jpg
     - android/app/src/main/res/
 
     
