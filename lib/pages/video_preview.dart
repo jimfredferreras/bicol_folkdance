@@ -1,24 +1,7 @@
 import 'dart:io';
+import 'package:bicol_folkdance/pages/classifying_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
-class CustomFloatingActionButtonLocation extends FloatingActionButtonLocation {
-  final double x;
-  final double y;
-
-  const CustomFloatingActionButtonLocation(this.x, this.y);
-
-  @override
-  Offset getOffset(ScaffoldPrelayoutGeometry scaffoldGeometry) {
-    final double halfWidth = scaffoldGeometry.scaffoldSize.width / 2.0;
-    final double halfHeight = scaffoldGeometry.scaffoldSize.height / 2.0;
-
-    final double dx = halfWidth - x;
-    final double dy = halfHeight - y;
-
-    return Offset(dx, dy);
-  }
-}
 
 class VideoPreviewScreen extends StatefulWidget {
   final File videoFile;
@@ -39,14 +22,21 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
     super.initState();
     _controller = VideoPlayerController.file(widget.videoFile)
       ..initialize().then((_) {
-        setState(
-            () {}); // Ensure the first frame is shown after the video is initialized
+        setState(() {
+          // Ensure the first frame is shown after the video is initialized
+        });
       })
       ..addListener(() {
         setState(() {
           _currentSliderValue = _controller.value.position.inSeconds.toDouble();
         });
       });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -90,7 +80,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             left: 25.0,
             right: 0.0, // Adjust left position as needed
             child: Text(
-              'Uploaded Succesfully!',
+              'Uploaded Successfully!',
               style: TextStyle(
                 fontSize: 32.0,
                 fontWeight: FontWeight.bold,
@@ -117,15 +107,21 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             child: Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle button press
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ClassifyingLoading(),
+                    ),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.lightBlue,
                   foregroundColor: Colors.white,
                 ),
                 child: const Text(
-                  'C L A S S I F Y',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  'C L A S S I F Y', //DAPAT KAPAG PININDOT AND BUTTON, MA RUN NA ANG PAG PREPROCESS AT ANG MODEL.
+                  //HABANG NAG RURUN ANG MODEL MA PUNTA MUNA SA ClassifyingLoading na screen.
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                 ),
               ),
             ),
@@ -165,11 +161,11 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                formatDuration(_controller.value.position),
+                _formatDuration(_controller.value.position),
                 style: TextStyle(fontSize: 12),
               ),
               Text(
-                formatDuration(_controller.value.duration),
+                _formatDuration(_controller.value.duration),
                 style: TextStyle(fontSize: 12),
               ),
             ],
@@ -209,7 +205,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
     );
   }
 
-  String formatDuration(Duration duration) {
+  String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));

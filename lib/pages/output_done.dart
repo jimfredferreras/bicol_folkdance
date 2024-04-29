@@ -1,4 +1,6 @@
-import 'package:bicol_folkdance/pages/aboutapp2.dart';
+// DAPAT DITO NA MA LABAS ANG OUTPUT NA GALING SA MODEL
+
+import 'package:bicol_folkdance/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,13 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: AboutPage(),
+      home: ClassificationDone(),
     );
   }
 }
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+class ClassificationDone extends StatelessWidget {
+  const ClassificationDone({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +28,21 @@ class AboutPage extends StatelessWidget {
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-                'assets/welcomebg.jpg'), // Replace 'assets/background_image.jpg' with your image path
+                'assets/output_done.jpg'), // Replace 'assets/background_image.jpg' with your image path
             fit: BoxFit.cover, // Adjust the image fit as needed
           ),
         ),
         child: Stack(
           children: [
             Positioned(
-              bottom: 200, // Adjust bottom position as needed
-              left: 110, // Adjust left position as needed
+              bottom: 60, // Adjust bottom position as needed
+              left: 160, // Adjust left position as needed
               child: ElevatedButton(
                 onPressed: () {
                   // Navigate to the new page
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AboutPage2()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -49,8 +51,8 @@ class AboutPage extends StatelessWidget {
                   foregroundColor: Colors.white,
                 ),
                 child: const Text(
-                  'LET\'S GET STARTED',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
+                  'D O N E',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                 ),
               ),
             ),

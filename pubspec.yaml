@@ -65,6 +65,7 @@ flutter:
     - assets/classification_button.png
     - assets/generate_button.png
     - assets/upload_button.png
+    - assets/letsdance.png
     - assets/bg_app.jpg
     - assets/bg1.jpg
     - assets/bg2.jpg
@@ -74,6 +75,9 @@ flutter:
     - assets/startbg.jpg
     - assets/howbg.jpg
     - assets/welcomebg.jpg
+    - assets/output_done.jpg
+    - assets/output_failed.jpg
+    - assets/classfyingdance_loading.jpg
     - android/app/src/main/res/
 
     

@@ -1,3 +1,4 @@
+import 'package:bicol_folkdance/pages/generate_opening.dart';
 import 'package:flutter/material.dart';
 import 'package:bicol_folkdance/pages/classify_opening.dart';
 
@@ -53,6 +54,11 @@ class HomePage extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const GenerateOpening()),
+                      );
                       // Implement functionality for Generation button
                     },
                     icon: Image.asset(

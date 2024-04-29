@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bicol_folkdance/pages/aboutapp.dart';
+import 'package:bicol_folkdance/pages/welcome.dart';
 
 void main() {
   runApp(const MyApp());
