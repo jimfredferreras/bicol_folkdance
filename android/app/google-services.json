@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "901828986581",
+    "project_id": "bicolanofolkdance-edb41",
+    "storage_bucket": "bicolanofolkdance-edb41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901828986581:android:2d7ed2b9e2d04d97b1c45c",
+        "android_client_info": {
+          "package_name": "com.example.bicol_folkdance"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPRbtm9QmS-OK7G8pY3Pr7-NLzMMwdf7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
