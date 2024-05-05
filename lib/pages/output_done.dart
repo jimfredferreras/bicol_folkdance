@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ClassificationDone extends StatelessWidget {
-  final Map<String,dynamic> prediction;
-  const ClassificationDone({super.key,required this.prediction });
+  final Map<String, dynamic> prediction;
+  const ClassificationDone({super.key, required this.prediction});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,35 +20,59 @@ class ClassificationDone extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Positioned(child:  SizedBox(
-              height: 300,
-              width: 500,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text("Dance: ${prediction['dance'].toString()}"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Text("Score: ${prediction['score'].toString()}"),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Flexible(child: Text("Statistics: ${prediction['stats'].toString()}")),
-                    ],
-                  ),
-              ],),
-            ),
-              top: 400,
+            Positioned(
+              child: SizedBox(
+                height: 350,
+                width: 500,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "Dance: ${prediction['dance'].toString()}",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "Score: ${prediction['score'].toString()}",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Statistics:",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 16),
+                              ),
+                              for (var entry in prediction['stats'].entries)
+                                Text(
+                                  "${entry.key}: ${entry.value}",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              top: 320,
               left: 50,
-            
             ),
             Positioned(
-              bottom: 60, // Adjust bottom position as needed
+              bottom: 80, // Adjust bottom position as needed
               left: 160, // Adjust left position as needed
               child: ElevatedButton(
                 onPressed: () {
