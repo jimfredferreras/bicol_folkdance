@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.6
   file_picker: ^8.0.1
   video_player: ^2.1.13
+  tflite_flutter: ^0.10.4
+  image: ^3.0.1
+  flutter_ffmpeg: ^0.4.0
+  path_provider: ^2.0.2
   
 
 dev_dependencies:
@@ -81,5 +85,6 @@ flutter:
     - assets/classfyingdance_loading.jpg
     - assets/generatingdance_loading.jpg
     - android/app/src/main/res/
+    - assets/models/
 
     

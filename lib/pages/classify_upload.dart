@@ -14,6 +14,7 @@ class ClassifyUpload extends StatefulWidget {
 class _ClassifyUploadState extends State<ClassifyUpload> {
   late File _videoFile;
 
+
   Future<void> _pickVideo(BuildContext context) async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.video,
@@ -27,8 +28,8 @@ class _ClassifyUploadState extends State<ClassifyUpload> {
       if (videoDimensions.width > videoDimensions.height) {
         setState(() {
           _videoFile = file;
-        });
-
+      });
+       
         // Navigate to the VideoPreviewScreen
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => VideoPreviewScreen(videoFile: _videoFile),

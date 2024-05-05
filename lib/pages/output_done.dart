@@ -2,25 +2,11 @@
 
 import 'package:bicol_folkdance/pages/home.dart';
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ClassificationDone(),
-    );
-  }
-}
+import 'package:flutter/widgets.dart';
 
 class ClassificationDone extends StatelessWidget {
-  const ClassificationDone({Key? key}) : super(key: key);
-
+  final Map<String,dynamic> prediction;
+  const ClassificationDone({super.key,required this.prediction });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +20,33 @@ class ClassificationDone extends StatelessWidget {
         ),
         child: Stack(
           children: [
+            Positioned(child:  SizedBox(
+              height: 300,
+              width: 500,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Text("Dance: ${prediction['dance'].toString()}"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Score: ${prediction['score'].toString()}"),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Flexible(child: Text("Statistics: ${prediction['stats'].toString()}")),
+                    ],
+                  ),
+              ],),
+            ),
+              top: 400,
+              left: 50,
+            
+            ),
             Positioned(
               bottom: 60, // Adjust bottom position as needed
               left: 160, // Adjust left position as needed
