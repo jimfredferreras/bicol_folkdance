@@ -110,7 +110,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ClassifyingLoading(),
+                      builder: (context) => ClassifyingLoading(videoFile:widget.videoFile,),
                     ),
                   );
                 },
