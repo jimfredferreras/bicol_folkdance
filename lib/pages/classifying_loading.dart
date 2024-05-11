@@ -140,7 +140,7 @@ class _ClassifyingLoadingState extends State<ClassifyingLoading> {
       var classifierOptions = InterpreterOptions();
       classifierOptions.threads = 4;
       final classfier = await Interpreter.fromAsset(
-          'assets/models/classifier.tflite',
+          'assets/models/pose_classifier_89(2).tflite',
           options: classifierOptions); // Load the model from assets
       classfier.allocateTensors();
       _classifier = await IsolateInterpreter.create(address: classfier.address);
@@ -237,10 +237,14 @@ class _ClassifyingLoadingState extends State<ClassifyingLoading> {
     }
     final String outputPath = '${appDocDir.path}/frame%d.jpg';
 
-    // Execute FFmpeg command to extract frames
+    // Execute FFmpeg command to extract frames from 0 to 15 seconds
     final arguments = [
       '-i',
       videoFile.path,
+      '-ss',
+      '0', // Starting time (0 seconds)
+      '-t',
+      '15', // Duration (15 seconds)
       '-vf',
       'fps=$fps',
       outputPath,
@@ -253,7 +257,6 @@ class _ClassifyingLoadingState extends State<ClassifyingLoading> {
           .listSync()
           .where((file) => file.path.endsWith('.jpg'))
           .map((file) => file.path)
-          // .map((file) => img.decodeImage(file.readAsBytesSync())!)
           .toList();
       return frames;
     }

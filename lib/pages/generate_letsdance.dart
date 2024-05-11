@@ -1,5 +1,6 @@
 import 'package:bicol_folkdance/pages/generating_loading.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class GenerateDance extends StatelessWidget {
   const GenerateDance({Key? key}) : super(key: key);
@@ -25,7 +26,9 @@ class GenerateDance extends StatelessWidget {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const GeneratingLoading()),
+                        builder: (context) => const GeneratingLoading(
+                              jsonData: null,
+                            )),
                   );
                 },
                 child: SizedBox(
